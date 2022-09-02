@@ -1,0 +1,26 @@
+{
+  "name": "asist-diploma-generator",
+  "version": "1.0.0",
+  "description": "Generate doc based on xls input",
+  "main": "index.js",
+  "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
+    "docxtemplater": "^3.31.3",
+    "express": "^4.18.1",
+    "jszip": "^2.7.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radu-nie/asist-diploma-generator.git"
+  },
+  "author": "Radu Nie",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/radu-nie/asist-diploma-generator/issues"
+  },
+  "homepage": "https://github.com/radu-nie/asist-diploma-generator#readme"
+}
