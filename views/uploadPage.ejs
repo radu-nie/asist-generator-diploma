@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  
+<head>
+    <title>Generator Diplome Asist</title>
+    <meta charset="utf-8"> 
+    <meta name="viewport" 
+          content="width=device-width, initial-scale=1"> 
+    <style>
+        body {    
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            margin-top: 10%;
+            font-family: sans-serif;
+        }
+        form {
+            display: grid;
+            width: 40%;
+            margin: 0 auto;
+        }
+        .inputfile {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+        .inputfile + label {
+            font-size: 1.25em;
+            font-weight: 100;
+            color: white;
+            background-color: #ff9191;
+            display: inline-block;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        .inputfile:focus + label,
+        .inputfile + label:hover {
+            background-color: #ff7878;
+        }
+        .inputfile + label {
+            cursor: pointer; 
+        }
+        .inputfile:focus + label {
+            outline: 1px dotted #000;
+            outline: -webkit-focus-ring-color auto 5px;
+        }
+        .inputfile + label * {
+            pointer-events: none;
+        }
+        input[type="submit"] {
+            display: block;
+            padding: 10px;
+            width: 50%;
+            margin: 0 auto;
+            background-color: #587fb1;
+            color: white;
+            border-width: 0px;
+        }
+    </style>
+    
+</head>
+  
+<body>
+    <h1>Generator Diplome ASIST</h1>
+   
+    <form action="/uploadXlsFile" enctype="multipart/form-data" method="POST"> 
+        <input type="file" name="fileObj"  id="file" class="inputfile" required/> 
+        <label for="file"><span>Selecteaza fisierul Excel</span></label>
+        <input type="submit" value="Genereaza" id="submitBtn" />
+    </form>
+    <script>
+        var inputs = document.querySelectorAll( '.inputfile' );
+        var submitBtn = document.querySelector('#submitBtn');
+        submitBtn.style.display = 'none';
+        Array.prototype.forEach.call( inputs, function( input )
+        {
+            var label	 = input.nextElementSibling,
+		    labelVal = label.innerHTML;
+
+            input.addEventListener( 'change', function( e ){
+		        var fileName = '';
+                fileName = e.target.value.split( '\\' ).pop();
+
+                if( fileName ) {
+                    label.querySelector( 'span' ).innerHTML = fileName;
+                    submitBtn.style.display = 'block';
+                } else
+                    label.innerHTML = labelVal;
+            });
+        });
+    </script>
+</body>
+  
+</html>
