@@ -9,7 +9,7 @@ const multer = require("multer")
 const download = require('download');
 const FileSaver = require('file-saver');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // View Engine Setup
 app.set("views",path.join(__dirname,"views"))
